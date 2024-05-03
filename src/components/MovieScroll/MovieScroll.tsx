@@ -8,7 +8,7 @@ interface MovieScrollProps {
 
 const MovieScroll: React.FC<MovieScrollProps> = ({movies}) => {
     return(
-        <div className='flex overflow-x-auto'>
+        <div className='no-scrollbar flex overflow-x-auto'>
         {movies.map((movie) => (
             <MovieCard
             key={movie.id}

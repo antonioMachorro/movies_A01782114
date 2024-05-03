@@ -16,7 +16,8 @@ const Favorites = () => {
                     return getMovieInfo(String(favorite))
                     .then((res) => {
                         if(res && res.data) {
-                            setShow(res.data)
+
+                            return res.data;
                         }
                     })
                     .catch((err) => {
@@ -41,7 +42,7 @@ const Favorites = () => {
                     <h2>Favorites</h2>
                     {favorites && favorites.length > 0 ? (
                         <div>
-                            {show &&
+                            {show.length > 0 &&
                             show.map((show:IMovieDetail) => (
                                 <MovieCard 
                                     key={show.id}
