@@ -4,6 +4,7 @@ import { Pill } from '../../components/Pill';
 import { IMovieResponse } from '../types';
 import { getMovieInfo, getRecommended } from '../../services';
 import { MovieScroll } from '../../components/MovieScroll';
+import {ReactComponent as StarSVG} from '../../assets/star-svgrepo-com.svg'
 
 const Show: React.FC = () => {
     const { id } = useParams(); //Usa los parametros de la ROUTE
@@ -90,6 +91,7 @@ const Show: React.FC = () => {
     }
 
     useEffect(() => {
+        console.log("ID CHANGED")
         const favs = localStorage.getItem('favorites') || '';
         setFavorites(favs);
         if (favs.includes(String(id))) {
@@ -98,24 +100,25 @@ const Show: React.FC = () => {
         getMovieData();
         getRecommendedMovies();
         console.log(movie?.original_language)
-    }, []);
+    }, [id]);
 
     return(
         <div>
-            <button className='bg-red-500 rounded-xl px-4 py-1 text-white mb-4' onClick={goBack}>Back</button>
-            <div className='bg-gray-300 px-4 py-2 rounded-lg'>
-                <div className='m-4'>
-                    <strong className='text-4xl font-poppins'>{location.state.movie}</strong>
+            <button className='bg-red-700 rounded-xl px-4 py-1 text-white mb-4' onClick={goBack}>BACK</button>
+            <div className='bg-lightgray px-4 py-2 rounded-lg'>
+                <div className='mx-4 mt-4'>
+                    <h1 className='text-5xl font-jakarta-medium'>{location.state.movie}</h1>
                 </div>
-                <div className='flex flex-row my-8'>
+                <div className='flex flex-row mt-8 mb-4'>
                     <img className='h-96 mx-4 rounded-xl' src={location.state.poster}></img>
-                    <div className='flex flex-col mx-20'>
-                        <div className=''>
-                            <Pill title={`Rating: ${(movie?.vote_average)?.toFixed(1)}`} color={getColor(location.state.rating)} />
+                    <div className='flex flex-col mx-20 my-4'>
+                        <div className='flex flex-row items-center mb-4'>
+                            <StarSVG width="24px"height="24px"/>
+                            <h1 className='font-montserrat ml-4'> Rating: {(movie?.vote_average)?.toFixed(1)} </h1>
                         </div>
                         <strong className= 'text-xl mb-4'>Movie Info:</strong>
                         <div className='font-poppins text-lg'>{movie?.overview}</div>
-                        <div className='flex flex-row items-center my-12 space-x-4'>
+                        <div className='flex flex-row items-center my-8 space-x-4'>
                             <Pill title={location.state.genreName} color='green' />
                             <Pill title={movie ? String(getLanguage(movie.original_language)) : "" } color='red' />
                         </div>
@@ -134,7 +137,7 @@ const Show: React.FC = () => {
                     </div>
                 </div>
                 <div className='mx-4'>
-                    <strong className= 'text-xl'> Recommended movies:</strong>
+                    <strong className= 'text-xl font-jakarta-medium'> Recommended movies:</strong>
                     <div className='my-2'>
                         <MovieScroll movies={recommendedMovies}/>
                     </div>

@@ -60,32 +60,32 @@ const Home = () => {
   }, []);
 
   return (
-    <>
-      <h1 className='text-3xl px-4 m-4'>POPULAR</h1>
-      <div className='px-5'>
+    <div>
+      <h1 className='text-4xl px-4 my-4 font-montserrat text-white'>POPULAR</h1>
+      <div className='px-5 p-4 rounded-xl overflow-x-auto bg-lightgray'>
         {isLoading && <div>Loading...</div>}
         {errorOnRequest && <div>Error...</div>}
         {popularMovies?.length > 0 && 
           <MovieScroll movies={popularMovies}/>
         }
       </div>
-      <h1 className='text-3xl px-4 m-4'>NOW PLAYING</h1>
-      <div className='px-5'>
+      <h1 className='text-4xl px-4 font-montserrat text-white mt-8 mb-4'>NOW PLAYING</h1>
+      <div className='px-5 bg-white p-4 rounded-xl overflow-x-auto bg-slate-200'>
         {isLoading && <div>Loading...</div>}
         {errorOnRequest && <div>Error...</div>}
         {popularMovies?.length > 0 && 
           <MovieScroll movies={nowPlayingMovies}/>
         }
       </div>
-      <h1 className='text-3xl px-4 m-4'>TOP RATED</h1>
-      <div className='px-5'>
+      <h1 className='text-4xl px-4 font-montserrat text-white mt-8 mb-4'>TOP RATED</h1>
+      <div className='px-5 bg-white p-4 rounded-xl overflow-x-auto bg-slate-200'>
         {isLoading && <div>Loading...</div>}
         {errorOnRequest && <div>Error...</div>}
         {popularMovies?.length > 0 && 
           <MovieScroll movies={topRatedMovies}/>
         }
       </div>
-    </>
+    </div>
   );
 }
 

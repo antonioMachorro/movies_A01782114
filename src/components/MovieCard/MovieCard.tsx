@@ -34,7 +34,7 @@ const MovieCard: React.FC<IMovieCard> = ({
     }
        
   return (
-  <div className="flex bg-white m-0 auto float-left overflow-hidden block mb-3 mr-5 relative shadow-lg rounded-lg p-0 flex-shrink-0 smooth-scroll w-64"
+  <div className="flex bg-white auto float-left overflow-hidden block mr-5 relative shadow-lg rounded-lg p-0 flex-shrink-0 smooth-scroll w-64"
   onClick={() => {
     navigateMovies(movieId, title, poster, getGenre(genreId), voteAverage)
   }}
