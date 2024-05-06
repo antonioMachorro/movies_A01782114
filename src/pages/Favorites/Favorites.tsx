@@ -39,9 +39,10 @@ const Favorites = () => {
         <div>
             {!loading ? (
                 <div>
-                    <h2>Favorites</h2>
+                    <h2 className='text-4xl mt-4 mx-8 font-montserrat text-white'>MY FAVORITES</h2>
                     {favorites && favorites.length > 0 ? (
-                        <div>
+                        <div className='px-4 mx-5'>
+                            <p className='mt-4 font-poppins text-white text-lg'>Look at all of your favorite movies!</p>
                             {show.length > 0 &&
                             show.map((show:IMovieDetail) => (
                                 <MovieCard 
@@ -56,7 +57,7 @@ const Favorites = () => {
                         </div>
                     ) : (
                         <div>
-                            <h2>
+                            <h2 className='text-4xl font-montserrat text-white'>
                                 Oops.you don't have any favorites yet.
                             </h2>
                         </div>

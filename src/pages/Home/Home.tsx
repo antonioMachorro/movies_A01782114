@@ -62,7 +62,7 @@ const Home = () => {
   return (
     <div>
       <h1 className='text-4xl px-4 my-4 font-montserrat text-white'>POPULAR</h1>
-      <div className='px-5 p-4 rounded-xl overflow-x-auto bg-lightgray'>
+      <div className='px-5 rounded-xl overflow-x-auto bg-lightgray'>
         {isLoading && <div>Loading...</div>}
         {errorOnRequest && <div>Error...</div>}
         {popularMovies?.length > 0 && 
@@ -70,7 +70,7 @@ const Home = () => {
         }
       </div>
       <h1 className='text-4xl px-4 font-montserrat text-white mt-8 mb-4'>NOW PLAYING</h1>
-      <div className='px-5 bg-white p-4 rounded-xl overflow-x-auto bg-slate-200'>
+      <div className='px-5 rounded-xl overflow-x-auto bg-lightgray'>
         {isLoading && <div>Loading...</div>}
         {errorOnRequest && <div>Error...</div>}
         {popularMovies?.length > 0 && 
@@ -78,7 +78,7 @@ const Home = () => {
         }
       </div>
       <h1 className='text-4xl px-4 font-montserrat text-white mt-8 mb-4'>TOP RATED</h1>
-      <div className='px-5 bg-white p-4 rounded-xl overflow-x-auto bg-slate-200'>
+      <div className='px-5 rounded-xl overflow-x-auto bg-lightgray'>
         {isLoading && <div>Loading...</div>}
         {errorOnRequest && <div>Error...</div>}
         {popularMovies?.length > 0 && 

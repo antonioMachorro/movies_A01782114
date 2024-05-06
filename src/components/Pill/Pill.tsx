@@ -9,6 +9,7 @@ const Pill: React.FC<IPill> = ({ title, color }) => {
     "bg-yellow-500": color === "yellow",
     "bg-green-500": color === "green",
     "bg-blue-500": color === "blue",
+    "bg-red-700": color === "darkred",
   })
   return <div className={pillClass}>{title}</div>
 }

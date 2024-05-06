@@ -5,6 +5,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import {ROUTES} from '../../routes/constants';
 import genres from '../../constants/genres.json';
+import {ReactComponent as StarSVG} from '../../assets/star-svgrepo-com.svg' //Fix this export to be default without this
 
 const MovieCard: React.FC<IMovieCard> = ({
     title,
@@ -34,7 +35,7 @@ const MovieCard: React.FC<IMovieCard> = ({
     }
        
   return (
-  <div className="flex bg-white auto float-left overflow-hidden block mr-5 relative shadow-lg rounded-lg p-0 flex-shrink-0 smooth-scroll w-64"
+  <div className="flex bg-white auto float-left overflow-hidden block mr-5 my-4 relative shadow-lg rounded-lg p-0 flex-shrink-0 smooth-scroll w-64"
   onClick={() => {
     navigateMovies(movieId, title, poster, getGenre(genreId), voteAverage)
   }}
@@ -45,8 +46,11 @@ const MovieCard: React.FC<IMovieCard> = ({
     <div className='absolute bottom-0 left-0 w-full h-auto opacity-100 transition-all duration-300 bg-gradient-to-t from-[rgb(2,0,36)] via-transparent to-transparent rounded-b-none'>
       <div className='p-4 py-3.5 w-full align-middle text-white'>
         <Pill title={getGenre(genreId)} color={getColor(voteAverage)} />
-        <p className='text-white block text-lg font-bold leading-none mt-2.5'>{title}</p>
-        <p className='mr-2.5 text-white text-xs font-medium table uppercase leading-none'>* {(voteAverage.toFixed(1))} / 10</p>
+        <p className='text-white block text-lg font-jakarta-medium leading-none mt-2.5 mb-2'>{title}</p>
+        <div className='flex flex-row items-center space-x-1.5'>
+          <StarSVG width="20px"height="20px"/>
+          <p className='mr-2.5 text-white text-sm font-medium table uppercase leading-none'> {(voteAverage.toFixed(1))} / 10</p>
+        </div>
       </div>
     </div>
   </div>

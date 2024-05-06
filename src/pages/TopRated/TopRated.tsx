@@ -31,13 +31,14 @@ const TopRated:React.FC = () => {
 
     return(
         <>
-        <h1 className='text-3xl px-4 m-4'>TOP RATED</h1>
-        <div className='px-5'>
-        {isLoading && <div>Loading...</div>}
-        {errorOnRequest && <div>Error...</div>}
-        {movies?.length > 0 && 
-            <MovieCardMap movies={movies}/>
-        }
+        <h1 className='text-4xl mt-4 mx-8 font-montserrat text-white'>TOP RATED</h1>
+        <div className='px-5 mx-4'>
+            <p className='mt-4 font-poppins text-white text-lg'>These are audience's favorite movies!</p>
+            {isLoading && <div>Loading...</div>}
+            {errorOnRequest && <div>Error...</div>}
+            {movies?.length > 0 && 
+                <MovieCardMap movies={movies}/>
+            }
         </div>
         </>
     );

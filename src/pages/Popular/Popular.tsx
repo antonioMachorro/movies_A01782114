@@ -36,14 +36,15 @@ const Popular: React.FC = () => {
 
   return (
     <div>
-      <h1 className='text-3xl px-4 m-4'>POPULAR</h1>
-      <div className='px-5'>
-        {isLoading && <div>Loading...</div>}
-        {errorOnRequest && <div>Error...</div>}
-        {movies?.length > 0 && 
-          <MovieCardMap movies={movies}/>
-        }
-      </div>
+      <h1 className='text-4xl mt-4 mx-8 font-montserrat text-white'>POPULAR</h1>
+        <div className='px-5 mx-4'>
+          <p className='mt-4 font-poppins text-white text-lg'>Check today's most popular movies!</p>
+          {isLoading && <div>Loading...</div>}
+          {errorOnRequest && <div>Error...</div>}
+          {movies?.length > 0 && 
+            <MovieCardMap movies={movies}/>
+          }
+        </div>
     </div>
   );
 }
